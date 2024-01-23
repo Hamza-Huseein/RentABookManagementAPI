@@ -16,6 +16,7 @@ namespace RentABookManagementAPI_Reopsitary.Models.Entity
         public DateTime EndDate { get; set; }
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }
+        public virtual List<Employee> Employees { get; set; }
 
 
     }
