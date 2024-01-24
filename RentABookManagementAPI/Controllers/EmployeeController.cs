@@ -10,10 +10,10 @@ namespace RentABookManagementAPI.Controllers
     [ApiController]
     public class EmployeeController : Controller, IEmployee
     {
-        private readonly RentABookManagementAPIDbContext _context;
-        public EmployeeController(RentABookManagementAPIDbContext context)
+        private readonly IEmployee _employee;
+        public EmployeeController(IEmployee employee)
         {
-            _context = context;
+            _employee = employee;
         }
 
         public Task<List<EmployeeCardDTO>> GetAllEmployee()

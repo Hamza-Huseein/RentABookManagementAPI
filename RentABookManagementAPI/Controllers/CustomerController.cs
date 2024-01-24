@@ -8,33 +8,73 @@ namespace RentABookManagementAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : Controller, ICustomer
+    public class CustomerController : Controller
     {
-        private readonly RentABookManagementAPIDbContext _context;
-        public CustomerController(RentABookManagementAPIDbContext context)
+        private readonly ICustomer _customer;
+        public CustomerController(ICustomer customer)
         {
-            _context = context;
+            _customer = customer;
         }
         public Task<List<CustomerCardDTO>> GetAllCustomer()
         {
             throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
-        public Task<Customer> GetCustomerById(int Id)
+        public async Task<IActionResult> GetCustomerById(int Id)
         {
             throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public Task CreateCustomer(CustomerCreateDTO dto)
         {
             throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public Task UpdateCustomer(CustomerUpdateDTO dto)
         {
             throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public Task DeleteCustomer(int Id)
         {
             throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         
     }

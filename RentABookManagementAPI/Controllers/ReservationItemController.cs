@@ -10,10 +10,10 @@ namespace RentABookManagementAPI.Controllers
     [ApiController]
     public class ReservationItemController : Controller, IReservationItem
     {
-        private readonly RentABookManagementAPIDbContext _context;
-        public ReservationItemController(RentABookManagementAPIDbContext context)
+        private readonly IReservationItem _reservationItem;
+        public ReservationItemController(IReservationItem reservationItem)
         {
-            _context = context;
+            _reservationItem = reservationItem;
         }
         public Task<List<ReservationItemCardDTO>> GetAllReservationItem()
         {

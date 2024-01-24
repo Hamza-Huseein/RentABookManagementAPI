@@ -13,6 +13,8 @@ namespace RentABookManagementAPI_Reopsitary.Models.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<ReservationItem> builder)
         {
+            builder.HasKey(x => x.BookId);
+            builder.HasKey(x => x.ReservationId);
             builder.Property(x => x.BookId).IsRequired();
             builder.Property(x => x.ReservationId).IsRequired();
             builder.Property(x => x.Price).IsRequired();
