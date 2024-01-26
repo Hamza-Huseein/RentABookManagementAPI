@@ -8,5 +8,8 @@ namespace RentABookManagementAPI_Reopsitary.DTO.Employee
 {
     public class EmployeeCreateDTO
     {
+        public int EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
+        public string Position { get; set; }
     }
 }

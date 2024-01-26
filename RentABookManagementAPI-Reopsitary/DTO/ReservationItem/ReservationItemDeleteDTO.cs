@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RentABookManagementAPI_Reopsitary.DTO.ReservationItem
 {
-    public class ReservationItemCreateDTO
+    public class ReservationItemDeleteDTO
     {
         public int BookId { get; set; }
         public int ReservationId { get; set; }
-        public int Price { get; set; }
     }
 }

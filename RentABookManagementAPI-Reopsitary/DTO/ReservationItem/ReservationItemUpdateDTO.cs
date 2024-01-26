@@ -8,5 +8,8 @@ namespace RentABookManagementAPI_Reopsitary.DTO.ReservationItem
 {
     public class ReservationItemUpdateDTO
     {
+        public int BookId { get; set; }
+        public int ReservationId { get; set; }
+        public int Price { get; set; }
     }
 }
