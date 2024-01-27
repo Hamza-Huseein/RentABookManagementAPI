@@ -8,6 +8,7 @@ using System.Net;
 using static System.Reflection.Metadata.BlobBuilder;
 using System.Linq;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Serilog;
 
 namespace RentABookManagementAPI.Controllers
 {
@@ -43,14 +44,19 @@ namespace RentABookManagementAPI.Controllers
         {
             try
             {
+                Log.Debug($"Debuggin GetBookById Has Been Started With Book Id ={Id} ");
                 var book = await _book.GetBookById(Id);
 
                 if (book != null)
                 {
+                    Log.Information("Book Is Existing");
                     return Ok(book);
+                    Log.Debug($"Debuggin GetBookById Has Been Finished With Book Id ={Id} ");
+
                 }
                 else
                 {
+                    Log.Error($"Book with Id {Id} not found");
                     return NotFound($"Book with Id {Id} not found");
                 }
             }
