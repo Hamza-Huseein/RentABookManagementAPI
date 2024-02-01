@@ -39,15 +39,15 @@ namespace RentABookManagementAPI.Controllers
         {
             try
             {
-                var reservation = await _reservation.GetReservationById(Id);
+                var Reservation = await _context.Reservations.FindAsync(Id);
 
-                if (reservation != null)
+                if (Reservation != null)
                 {
-                    return Ok(reservation);
+                    return Ok(Reservation);
                 }
                 else
                 {
-                    return NotFound($"reservation with Id {Id} not found");
+                    return NotFound($"Reservation with Id {Id} not found");
                 }
             }
             catch (Exception ex)

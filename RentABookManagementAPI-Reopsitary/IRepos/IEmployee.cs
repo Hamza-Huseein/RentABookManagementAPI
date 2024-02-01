@@ -1,4 +1,5 @@
-﻿using RentABookManagementAPI_Reopsitary.DTO.Customer;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentABookManagementAPI_Reopsitary.DTO.Customer;
 using RentABookManagementAPI_Reopsitary.DTO.Employee;
 using RentABookManagementAPI_Reopsitary.Models.Entity;
 using System;
@@ -11,10 +12,10 @@ namespace RentABookManagementAPI_Reopsitary.IRepos
 {
     public interface IEmployee
     {
-        Task<Employee> GetEmployeeById(int Id);
-        Task<List<EmployeeCardDTO>> GetAllEmployee();
-        Task CreateEmployee(EmployeeCreateDTO dto);
-        Task UpdateEmployee(EmployeeUpdateDTO dto);
-        Task DeleteEmployee(int Id);
+        Task<IActionResult> GetEmployeeById(int Id);
+        Task<IActionResult> GetAllEmployee();
+        Task<IActionResult> CreateEmployee(EmployeeCreateDTO dto);
+        Task<IActionResult> UpdateEmployee(EmployeeUpdateDTO dto);
+        Task<IActionResult> DeleteEmployee(int Id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using RentABookManagementAPI_Reopsitary.Context;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentABookManagementAPI_Reopsitary.Context;
 using RentABookManagementAPI_Reopsitary.DTO.Employee;
 using RentABookManagementAPI_Reopsitary.IRepos;
 using RentABookManagementAPI_Reopsitary.Models.Entity;
@@ -17,7 +18,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
         {
             _context = context;
         }
-        public Task CreateEmployee(EmployeeCreateDTO dto)
+        public Task<IActionResult> CreateEmployee(EmployeeCreateDTO dto)
         {
             throw new NotImplementedException();
             try
@@ -30,7 +31,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task DeleteEmployee(int Id)
+        public Task<IActionResult> DeleteEmployee(int Id)
         {
             throw new NotImplementedException();
             try
@@ -43,7 +44,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task<List<EmployeeCardDTO>> GetAllEmployee()
+        public Task<IActionResult> GetAllEmployee()
         {
             throw new NotImplementedException();
             try
@@ -56,7 +57,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task<Employee> GetEmployeeById(int Id)
+        public Task<IActionResult> GetEmployeeById(int Id)
         {
             throw new NotImplementedException();
             try
@@ -69,7 +70,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task UpdateEmployee(EmployeeUpdateDTO dto)
+        public Task<IActionResult> UpdateEmployee(EmployeeUpdateDTO dto)
         {
             throw new NotImplementedException();
             try

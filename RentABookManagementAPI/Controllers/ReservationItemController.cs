@@ -39,15 +39,15 @@ namespace RentABookManagementAPI.Controllers
         {
             try
             {
-                var reservationItem = await _reservationItem.GetReservationItemById(Id);
+                var ReservationItem = await _context.ReservationItems.FindAsync(Id);
 
-                if (reservationItem != null)
+                if (ReservationItem != null)
                 {
-                    return Ok(reservationItem);
+                    return Ok(ReservationItem);
                 }
                 else
                 {
-                    return NotFound($"reservationItem with Id {Id} not found");
+                    return NotFound($"ReservationItem with Id {Id} not found");
                 }
             }
             catch (Exception ex)
@@ -58,20 +58,6 @@ namespace RentABookManagementAPI.Controllers
         /// <summary>
         /// Gets the list of AllReservationItem .
         /// </summary>
-        /// <remarks>
-        /// Sample request:
-        /// 
-        ///     Get api/Get AllReservationItem
-        ///     {        
-        ///       "ReservationId": "Enter Your ReservationId For Get Reservation Here",  
-        ///       "ReservationNumber": "Enter Your ReservationNumber For Get Reservation Here",
-        ///       "TotalPrice": "Enter Your TotalPrice For Get Reservation Here",
-        ///       "StartDate": "Enter Your StartDate For Get Reservation Here",
-        ///       "EndDate": "Enter Your EndDate For Get Reservation Here",
-        ///       "CustomerId": "Enter Your CustomerId For Get Reservation Here",
-        ///       "EmployeeId": "Enter Your EmployeeId For Get Reservation Here",
-        ///     }
-        /// </remarks>
         /// <returns>A newly Get AllReservationItem </returns>
         /// <response code="201">Returns the newly Get AllReservationItem
         /// </response>

@@ -39,15 +39,15 @@ namespace RentABookManagementAPI.Controllers
         {
             try
             {
-                var customer = await _customer.GetCustomerById(Id);
+                var employee = await _context.Customers.FindAsync(Id);
 
-                if (customer != null)
+                if (employee != null)
                 {
-                    return Ok(customer);
+                    return Ok(employee);
                 }
                 else
                 {
-                    return NotFound($"customer with Id {Id} not found");
+                    return NotFound($"employee with Id {Id} not found");
                 }
             }
             catch (Exception ex)

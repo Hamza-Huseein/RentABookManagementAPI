@@ -101,15 +101,10 @@ namespace RentABookManagementAPI_Reopsitary.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
-
                     b.HasKey("EmployeeId");
 
                     b.HasIndex("EmployeeName")
                         .IsUnique();
-
-                    b.HasIndex("ReservationId");
 
                     b.ToTable("Employees");
                 });
@@ -147,52 +142,33 @@ namespace RentABookManagementAPI_Reopsitary.Migrations
 
             modelBuilder.Entity("RentABookManagementAPI_Reopsitary.Models.Entity.ReservationItem", b =>
                 {
-                    b.Property<int>("ReservationId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReservationId"));
-
-                    b.Property<int>("BookId")
+                    b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReservationId1")
-                        .HasColumnType("int");
+                    b.HasKey("BookId", "ReservationId");
 
-                    b.HasKey("ReservationId");
-
-                    b.HasIndex("ReservationId1");
+                    b.HasIndex("ReservationId");
 
                     b.ToTable("ReservationItems");
-                });
-
-            modelBuilder.Entity("RentABookManagementAPI_Reopsitary.Models.Entity.Employee", b =>
-                {
-                    b.HasOne("RentABookManagementAPI_Reopsitary.Models.Entity.Reservation", "Reservation")
-                        .WithMany("Employees")
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Reservation");
                 });
 
             modelBuilder.Entity("RentABookManagementAPI_Reopsitary.Models.Entity.ReservationItem", b =>
                 {
                     b.HasOne("RentABookManagementAPI_Reopsitary.Models.Entity.Reservation", null)
                         .WithMany("Reservationtems")
-                        .HasForeignKey("ReservationId1")
+                        .HasForeignKey("ReservationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("RentABookManagementAPI_Reopsitary.Models.Entity.Reservation", b =>
                 {
-                    b.Navigation("Employees");
-
                     b.Navigation("Reservationtems");
                 });
 #pragma warning restore 612, 618

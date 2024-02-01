@@ -40,12 +40,12 @@ namespace RentABookManagementAPI.Controllers
         /// <response code="400">If the error was occured</response>  
         [HttpGet]
         [Route("GetBookById/{Id}")]
-        public async Task<IActionResult> GetBookById(int Id)
+        public async Task<IActionResult> GetBookById([FromRoute] int Id)
         {
             try
             {
                 Log.Debug($"Debuggin GetBookById Has Been Started With Book Id ={Id} ");
-                var book = await _book.GetBookById(Id);
+                var book = await _context.Books.FindAsync(Id);
 
                 if (book != null)
                 {
@@ -64,6 +64,7 @@ namespace RentABookManagementAPI.Controllers
             {
                 return BadRequest();
             }
+
 
         }
         /// <summary>
@@ -162,7 +163,7 @@ namespace RentABookManagementAPI.Controllers
         /// <response code="400">If the error was occured</response> 
         [HttpPut]
         [Route("[action]")]
-        public async Task<IActionResult> UpdateBook(BookUpdateDTO dto)
+        public async Task<IActionResult> UpdateBook([FromRoute] int id ,  BookUpdateDTO dto)
         {
             var result = await _context.Books.FindAsync(dto.BookId);
             if (result != null)

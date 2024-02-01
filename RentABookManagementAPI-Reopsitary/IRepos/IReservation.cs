@@ -1,4 +1,5 @@
-﻿using RentABookManagementAPI_Reopsitary.DTO.Customer;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentABookManagementAPI_Reopsitary.DTO.Customer;
 using RentABookManagementAPI_Reopsitary.DTO.Reservation;
 using RentABookManagementAPI_Reopsitary.Models.Entity;
 using System;
@@ -11,10 +12,10 @@ namespace RentABookManagementAPI_Reopsitary.IRepos
 {
     public interface IReservation
     {
-        Task<Reservation> GetReservationById(int Id);
-        Task<List<ReservationCardDTO>> GetAllReservation();
-        Task CreateReservation(ReservationCreateDTO dto);
-        Task UpdateReservation(ReservationUpdateDTO dto);
-        Task DeleteReservation(int Id);
+        Task<IActionResult> GetReservationById(int Id);
+        Task<IActionResult> GetAllReservation();
+        Task<IActionResult> CreateReservation(ReservationCreateDTO dto);
+        Task<IActionResult> UpdateReservation(ReservationUpdateDTO dto);
+        Task<IActionResult> DeleteReservation(int Id);
     }
 }

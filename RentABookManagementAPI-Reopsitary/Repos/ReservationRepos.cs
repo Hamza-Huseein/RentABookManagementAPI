@@ -1,4 +1,5 @@
-﻿using RentABookManagementAPI_Reopsitary.Context;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentABookManagementAPI_Reopsitary.Context;
 using RentABookManagementAPI_Reopsitary.DTO.Reservation;
 using RentABookManagementAPI_Reopsitary.IRepos;
 using RentABookManagementAPI_Reopsitary.Models.Entity;
@@ -17,7 +18,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
         {
             _context = context;
         }
-        public Task CreateReservation(ReservationCreateDTO dto)
+        public Task<IActionResult> CreateReservation(ReservationCreateDTO dto)
         {
             throw new NotImplementedException();
             try
@@ -30,7 +31,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task DeleteReservation(int Id)
+        public Task<IActionResult> DeleteReservation(int Id)
         {
             throw new NotImplementedException();
             try
@@ -43,7 +44,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task<List<ReservationCardDTO>> GetAllReservation()
+        public Task<IActionResult> GetAllReservation()
         {
             throw new NotImplementedException();
             try
@@ -56,7 +57,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task<Reservation> GetReservationById(int Id)
+        public Task<IActionResult> GetReservationById(int Id)
         {
             throw new NotImplementedException();
             try
@@ -69,7 +70,7 @@ namespace RentABookManagementAPI_Reopsitary.Repos
             }
         }
 
-        public Task UpdateReservation(ReservationUpdateDTO dto)
+        public Task<IActionResult> UpdateReservation(ReservationUpdateDTO dto)
         {
             throw new NotImplementedException();
             try
